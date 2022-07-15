@@ -1,0 +1,15 @@
+name: Pull Request Checks
+on:
+  pull_request:
+    types:
+    - opened
+    - reopened
+jobs:
+  Check-Shell-Scripts:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ludeeus/action-shellcheck@v1
+    - uses: collin-miller/shfmt-action@v1
+      with:
+        args: -kp -i 2 -d
