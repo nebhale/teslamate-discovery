@@ -306,8 +306,8 @@ sensor        "Rated Battery Range KM"        '{ name: "\($CAR_NAME) Rated Batte
 sensor        "Ideal Battery Range KM"        '{ name: "\($CAR_NAME) Ideal Battery Range", icon: "mdi:gauge", unit_of_measurement: "km" }'
 sensor        "Ideal Battery Range KM"        '{ name: "\($CAR_NAME) Ideal Battery Range", icon: "mdi:gauge", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609) | round(2) }}" }' "ideal_battery_range_mi"
 
-sensor        "Battery Level"                 '{ device_class: "battery" }'
-sensor        "Usable Battery Level"          '{ device_class: "battery" }'
+sensor        "Battery Level"                 '{ device_class: "battery", unit_of_measurement: "%" }'
+sensor        "Usable Battery Level"          '{ device_class: "battery", unit_of_measurement: "%" }'
 binary_sensor "Plugged In"                    '{ name: "\($CAR_NAME) Plug", device_class: "plug", icon: "mdi:ev-station" }'
 sensor        "Charge Energy Added"           '{ device_class: "energy", icon: "mdi:battery-charging-50", unit_of_measurement: "kWh" }'
 sensor        "Charge Limit SOC"              '{ icon: "mdi:battery-charging-90", unit_of_measurement: "%" }'
