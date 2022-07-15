@@ -54,10 +54,6 @@ device_tracker() {
   local UNIQUE_SENSOR
   UNIQUE_SENSOR=$(unique_sensor "$@")
 
-  echo "${SENSOR}"
-  echo "${UNIQUE_SENSOR}"
-  echo "---"
-
   jq \
     --argjson ADDITIONAL "$(jq --null-input --arg CAR_NAME "${CAR_NAME}" "$2")" \
     --argjson DEVICE "$(device)" \
@@ -124,10 +120,6 @@ sensor() {
   SENSOR=$(snake_case "$1")
   local UNIQUE_SENSOR
   UNIQUE_SENSOR=$(unique_sensor "$@")
-
-  echo "${SENSOR}"
-  echo "${UNIQUE_SENSOR}"
-  echo "---"
 
   jq \
     --argjson ADDITIONAL "$(jq --null-input --arg CAR_NAME "${CAR_NAME}" "$2")" \
