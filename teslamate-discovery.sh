@@ -277,7 +277,7 @@ sensor        "Geofence"                      '{ icon: "mdi:earth" }'
 sensor        "Latitude"                      '{ icon: "mdi:crosshairs-gps", unit_of_measurement: "°" }'
 sensor        "Longitude"                     '{ icon: "mdi:crosshairs-gps", unit_of_measurement: "°" }'
 sensor        "Shift State"                   '{ icon: "mdi:car-shift-pattern" }'
-sensor        "Power"                         '{ device_class: "power", unit_of_measurement: "W" }'
+sensor        "Power"                         '{ device_class: "power", unit_of_measurement: "kW" }'
 sensor        "Speed"                         '{ icon: "mdi:speedometer", unit_of_measurement:"km/h" }'
 sensor        "Speed"                         '{ icon: "mdi:speedometer", unit_of_measurement:"mph", value_template: "{{ (value | float(0) / 1.609344) | round(2) }}" }' "speed_mph"
 sensor        "Heading"                       '{ icon: "mdi:compass", unit_of_measurement: "°" }'
