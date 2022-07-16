@@ -279,10 +279,10 @@ sensor        "Longitude"                     '{ icon: "mdi:crosshairs-gps", uni
 sensor        "Shift State"                   '{ icon: "mdi:car-shift-pattern" }'
 sensor        "Power"                         '{ device_class: "power", unit_of_measurement: "W" }'
 sensor        "Speed"                         '{ icon: "mdi:speedometer", unit_of_measurement:"km/h" }'
-sensor        "Speed"                         '{ icon: "mdi:speedometer", unit_of_measurement:"mph", value_template: "{{ (value | float(0) / 1.609) | round(2) }}" }' "speed_mph"
+sensor        "Speed"                         '{ icon: "mdi:speedometer", unit_of_measurement:"mph", value_template: "{{ (value | float(0) / 1.609344) | round(2) }}" }' "speed_mph"
 sensor        "Heading"                       '{ icon: "mdi:compass", unit_of_measurement: "°" }'
 sensor        "Elevation"                     '{ icon: "mdi:image-filter-hdr", unit_of_measurement: "m" }'
-sensor        "Elevation"                     '{ icon: "mdi:image-filter-hdr", unit_of_measurement: "ft", value_template: "{{ (value | float(0) * 3.2808) | round(2) }}" }' "elevation_ft"
+sensor        "Elevation"                     '{ icon: "mdi:image-filter-hdr", unit_of_measurement: "ft", value_template: "{{ (value | float(0) * 3.280839) | round(2) }}" }' "elevation_ft"
 
 binary_sensor "Locked"                        '{ device_class: "lock", value_template: "{{ \"false\" if value == \"true\" else \"true\" }}" }'
 binary_sensor "Sentry Mode"                   '{ icon: "mdi:cctv" }'
@@ -298,13 +298,13 @@ sensor        "Outside Temp"                  '{ name: "\($CAR_NAME) Outside Tem
 binary_sensor "Is Preconditioning"            '{ name: "\($CAR_NAME) Preconditioning", device_class: "running", icon: "mdi:fan" }'
 
 sensor        "Odometer"                      '{ icon: "mdi:counter", unit_of_measurement: "km" }'
-sensor        "Odometer"                      '{ icon: "mdi:counter", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609) | round(2) }}" }' "odometer_mi"
+sensor        "Odometer"                      '{ icon: "mdi:counter", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609344) | round(2) }}" }' "odometer_mi"
 sensor        "Est Battery Range KM"          '{ name: "\($CAR_NAME) Estimated Battery Range", icon: "mdi:gauge", unit_of_measurement: "km" }'
-sensor        "Est Battery Range KM"          '{ name: "\($CAR_NAME) Estimated Battery Range", icon: "mdi:gauge", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609) | round(2) }}" }' "est_battery_range_mi"
+sensor        "Est Battery Range KM"          '{ name: "\($CAR_NAME) Estimated Battery Range", icon: "mdi:gauge", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609344) | round(2) }}" }' "est_battery_range_mi"
 sensor        "Rated Battery Range KM"        '{ name: "\($CAR_NAME) Rated Battery Range", icon: "mdi:gauge", unit_of_measurement: "km" }'
-sensor        "Rated Battery Range KM"        '{ name: "\($CAR_NAME) Rated Battery Range", icon: "mdi:gauge", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609) | round(2) }}" }' "rated_battery_range_mi"
+sensor        "Rated Battery Range KM"        '{ name: "\($CAR_NAME) Rated Battery Range", icon: "mdi:gauge", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609344) | round(2) }}" }' "rated_battery_range_mi"
 sensor        "Ideal Battery Range KM"        '{ name: "\($CAR_NAME) Ideal Battery Range", icon: "mdi:gauge", unit_of_measurement: "km" }'
-sensor        "Ideal Battery Range KM"        '{ name: "\($CAR_NAME) Ideal Battery Range", icon: "mdi:gauge", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609) | round(2) }}" }' "ideal_battery_range_mi"
+sensor        "Ideal Battery Range KM"        '{ name: "\($CAR_NAME) Ideal Battery Range", icon: "mdi:gauge", unit_of_measurement: "mi", value_template: "{{ (value | float(0) / 1.609344) | round(2) }}" }' "ideal_battery_range_mi"
 
 sensor        "Battery Level"                 '{ device_class: "battery", unit_of_measurement: "%" }'
 sensor        "Usable Battery Level"          '{ device_class: "battery", unit_of_measurement: "%" }'
@@ -322,13 +322,13 @@ sensor        "Scheduled Charging Start Time" '{ device_class: "timestamp" }'
 sensor        "Time to Full Charge"           '{ device_class: "duration", unit_of_measurement: "hours" }'
 
 sensor        "TPMS Pressure FL"              '{ name: "\($CAR_NAME) Tire Pressure (Front Left)", device_class: "pressure", unit_of_measurement: "bar" }'
-sensor        "TPMS Pressure FL"              '{ name: "\($CAR_NAME) Tire Pressure (Front Left)", device_class: "pressure", unit_of_measurement: "psi", value_template: "{{ (value | float(0) * 11.504) | round(2) }}" }' "tpms_pressure_fl_psi"
+sensor        "TPMS Pressure FL"              '{ name: "\($CAR_NAME) Tire Pressure (Front Left)", device_class: "pressure", unit_of_measurement: "psi", value_template: "{{ (value | float(0) * 14.503773) | round(2) }}" }' "tpms_pressure_fl_psi"
 sensor        "TPMS Pressure FR"              '{ name: "\($CAR_NAME) Tire Pressure (Front Right)", device_class: "pressure", unit_of_measurement: "bar" }'
-sensor        "TPMS Pressure FR"              '{ name: "\($CAR_NAME) Tire Pressure (Front Right)", device_class: "pressure", unit_of_measurement: "psi", value_template: "{{ (value | float(0) * 11.504) | round(2) }}" }' "tpms_pressure_fr_psi"
+sensor        "TPMS Pressure FR"              '{ name: "\($CAR_NAME) Tire Pressure (Front Right)", device_class: "pressure", unit_of_measurement: "psi", value_template: "{{ (value | float(0) * 14.503773) | round(2) }}" }' "tpms_pressure_fr_psi"
 sensor        "TPMS Pressure RL"              '{ name: "\($CAR_NAME) Tire Pressure (Rear Left)", device_class: "pressure", unit_of_measurement: "bar" }'
-sensor        "TPMS Pressure RL"              '{ name: "\($CAR_NAME) Tire Pressure (Rear Left)", device_class: "pressure", unit_of_measurement: "psi", value_template: "{{ (value | float(0) * 11.504) | round(2) }}" }' "tpms_pressure_rl_psi"
+sensor        "TPMS Pressure RL"              '{ name: "\($CAR_NAME) Tire Pressure (Rear Left)", device_class: "pressure", unit_of_measurement: "psi", value_template: "{{ (value | float(0) * 14.503773) | round(2) }}" }' "tpms_pressure_rl_psi"
 sensor        "TPMS Pressure RR"              '{ name: "\($CAR_NAME) Tire Pressure (Rear Right)", device_class: "pressure", unit_of_measurement: "bar" }'
-sensor        "TPMS Pressure RR"              '{ name: "\($CAR_NAME) Tire Pressure (Rear Right)", device_class: "pressure", unit_of_measurement: "psi", value_template: "{{ (value | float(0) * 11.504) | round(2) }}" }' "tpms_pressure_rr_psi"
+sensor        "TPMS Pressure RR"              '{ name: "\($CAR_NAME) Tire Pressure (Rear Right)", device_class: "pressure", unit_of_measurement: "psi", value_template: "{{ (value | float(0) * 14.503773) | round(2) }}" }' "tpms_pressure_rr_psi"
 
 binary_sensor "State"                         '{ name: "\($CAR_NAME) Charging", device_class: "battery_charging", value_template: "{{ \"true\" if value == \"charging\" else \"false\" }}" }' "charging"
 binary_sensor "Shift State"                   '{ name: "\($CAR_NAME) Parking Brake", icon: "mdi:car-brake-parking", value_template: "{{ \"true\" if value == \"P\" else \"false\" }}" }' "parking_brake"
