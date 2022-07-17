@@ -333,4 +333,4 @@ sensor        "TPMS Pressure RR"              '{ name: "\($CAR_NAME) Tire Pressu
 binary_sensor "State"                         '{ name: "\($CAR_NAME) Charging", device_class: "battery_charging", value_template: "{{ \"true\" if value == \"charging\" else \"false\" }}" }' "charging"
 binary_sensor "Shift State"                   '{ name: "\($CAR_NAME) Parking Brake", icon: "mdi:car-brake-parking", value_template: "{{ \"true\" if value == \"P\" else \"false\" }}" }' "parking_brake"
 
-device_tracker  "Latitude"                    '{ name: "\($CAR_NAME)", icon: "mdi:car" }' "location"
+device_tracker "Latitude"                     '{ name: "\($CAR_NAME)", icon: "mdi:car" }' "location"
