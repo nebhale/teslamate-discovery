@@ -90,7 +90,7 @@ Flags:
   -h, --mqtt-host string      The host of the Mosquito MQTT broker to connect to.
                               (optional, default: core-mosquitto)
   -p, --mqtt-port number      The port of the Mosquito MQTT broker to connect to.
-                              (optional, default: 1883)
+                              (optional, default: 8883)
   -u, --mqtt-username string  The username to connect to Mosquito MQTT broker with.
                               This user must have at least 'topic write homeassistant/#'
                               access on the broker.
@@ -239,7 +239,7 @@ if [[ -z ${MQTT_HOST+x} ]]; then
 fi
 
 if [[ -z ${MQTT_PORT+x} ]]; then
-  MQTT_PORT="1883"
+  MQTT_PORT="8883"
 fi
 
 if [[ -z ${MQTT_USERNAME+x} ]]; then
