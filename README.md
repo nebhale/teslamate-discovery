@@ -24,6 +24,7 @@ topic readwrite teslamate/#
 
 user teslamate-discovery
 topic readwrite homeassistant/#
+topic read teslamate/#
 ```
 
 [mos]: https://github.com/home-assistant/addons/blob/master/mosquitto/DOCS.md
@@ -33,25 +34,20 @@ The script is relatively self-contained and only depends on `jq` and `mosquitto_
 
 ```plain
 Usage:
-  teslamate-discovery.sh [flags]
+  teslamate-discovery [flags]
 
 Flags:
-  -i, --car-id number         The teslamate id for the car, e.g. 1
-  -m, --car-model string      The model of the car, e.g. Model S 85D
-  -n, --car-name string       The name of the car, e.g. My Beautiful Blue Baby
-  -v, --car-sw-version string The software version of the car, e.g. 2022.16.3
-  -h, --mqtt-host string      The host of the Mosquito MQTT broker to connect to.
-                              (optional, default: core-mosquitto)
-  -p, --mqtt-port number      The port of the Mosquito MQTT broker to connect to.
-                              (optional, default: 1883)
-  -u, --mqtt-username string  The username to connect to Mosquito MQTT broker with.
-                              This user must have at least 'topic write homeassistant/#'
-                              access on the broker.
-  -P, --mqtt-password string  The password to connect to Mosquito MQTT broker with
-  -d, --ha-discovery-prefix   The discovery prefix that Home Assistant is configured
-                              to watch. (optional, default: homeassistant)
-
-  --help                      Print this help message
+      --ha-discovery-prefix string   home assistant discovery message prefix (default "homeassistant")
+      --help                         help for teslamate-discovery
+  -h, --mqtt-host string             mqtt broker host (default "127.0.0.1")
+  -P, --mqtt-password string         mqtt broker password
+  -p, --mqtt-port int                mqtt broker port (default 8883)
+  -s, --mqtt-scheme string           mqtt broker scheme (default "ssl")
+  -u, --mqtt-username string         mqtt broker username
+      --tm-prefix string             teslamate message prefix (default "teslamate")
+      --units-distance string        distance units ["imperial", "metric"] (default "imperial")
+      --units-pressure string        pressure units ["imperial", "metric"] (default "imperial")
+  -v, --version                      version for teslamate-discovery
 ```
 
 ## License
