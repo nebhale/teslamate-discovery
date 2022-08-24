@@ -202,14 +202,6 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		},
 		ha.Sensor{
 			Device:            device,
-			DeviceClass:       ha.Power,
-			Name:              Name(device, "Power"),
-			StateTopic:        StateTopic(device, "/power"),
-			UniqueId:          UniqueId(device, "/power"),
-			UnitOfMeasurement: "kW",
-		},
-		ha.Sensor{
-			Device:            device,
 			Icon:              "mdi:speedometer",
 			Name:              Name(device, "Speed"),
 			StateTopic:        StateTopic(device, "/speed"),

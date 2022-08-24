@@ -13,8 +13,14 @@ import (
 	"github.com/nebhale/teslamate-discovery/ha"
 )
 
+type PubSub interface {
+	Publish(topic string, qos byte, retained bool, payload interface{}) paho.Token
+	Subscribe(topic string, qos byte, callback paho.MessageHandler) paho.Token
+	Unsubscribe(topics ...string) paho.Token
+}
+
 type MQTT struct {
-	Client paho.Client
+	Client PubSub
 }
 
 func NewMQTT(ctx context.Context, config Config) (*MQTT, error) {
