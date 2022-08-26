@@ -8,3 +8,30 @@ updates:
   labels:
   - dependencies
   - github-actions
+
+- package-ecosystem: gomod
+  directory: /
+  schedule:
+    interval: daily
+  labels:
+  - dependencies
+  - gomod
+
+
+- package-ecosystem: gomod
+  directory: "/hack/goimports"
+  schedule:
+    interval: daily
+  labels:
+  - dependencies
+  - gomod
+  - tools
+
+- package-ecosystem: gomod
+  directory: "/hack/ko"
+  schedule:
+    interval: daily
+  labels:
+  - dependencies
+  - gomod
+  - tools

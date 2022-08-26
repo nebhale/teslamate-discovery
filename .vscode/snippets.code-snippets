@@ -1,0 +1,15 @@
+{
+	"Go File Header": {
+		"scope": "go",
+		"prefix": "gof",
+		"body": [
+			"// Copyright $CURRENT_YEAR Ben Hale",
+			"// SPDX-License-Identifier: Apache-2.0",
+			"",
+			"package ${TM_DIRECTORY/.*\\/([^\\/]+)$/$1/}",
+			"",
+			"$0"
+		],
+		"description": "Standard Go file header"
+	},
+}
