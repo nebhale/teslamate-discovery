@@ -6,11 +6,13 @@ on:
     - reopened
     - synchronize
 jobs:
-  check-shell-scripts:
+  tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: ludeeus/action-shellcheck@master
-    - uses: collin-miller/shfmt-action@v1
+    - uses: actions/checkout@v3.0.2
+    - uses: actions/setup-go@v3.3.0
       with:
-        args: -kp -i 2 -d teslamate-discovery.sh
+        go-version-file: 'go.mod'
+        check-latest: true
+        cache: true
+    - run: make test
