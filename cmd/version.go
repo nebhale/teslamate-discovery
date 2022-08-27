@@ -3,4 +3,4 @@
 
 package main
 
-var Version = "unknown"
+var version = "unknown"

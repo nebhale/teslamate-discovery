@@ -5,10 +5,14 @@ else
 GOBIN=$(shell go env GOBIN)
 endif
 
+VERSION ?= $(shell git describe --always --dirty)
+
 # Tools
 GOIMPORTS ?= go run -modfile hack/goimports/go.mod golang.org/x/tools/cmd/goimports
 KO ?= go run -modfile hack/ko/go.mod github.com/google/ko
 
+LD_FLAGS ?= -X main.version=$(VERSION)
+KO_DOCKER_REPO ?= ko.local
 KO_PLATFORMS ?= all
 
 # Setting SHELL to bash allows bash commands to be executed by recipes.
@@ -42,10 +46,25 @@ help: ## Display this help.
 fmt: ## Run go fmt against code.
 	$(GOIMPORTS) --local github.com/nebhale/teslamate-discovery -w .
 
+tidy: ## Run go mod tidy against code.
+	go mod tidy
+
 .PHONY: vet
 vet: ## Run go vet against code.
 	go vet ./...
 
 .PHONY: test
-test: fmt vet ## Run tests.
+test: fmt vet tidy ## Run tests.
 	go test ./...
+
+##@ Running
+
+.PHONY: run
+run: ## Run the application.
+	go run -ldflags "$(LD_FLAGS)" ./cmd
+
+##@ Building
+
+.PHONY: image
+image: ## Build the image.
+	VERSION=$(VERSION) $(KO) build --platform $(KO_PLATFORMS) ./cmd

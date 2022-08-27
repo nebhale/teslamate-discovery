@@ -43,7 +43,7 @@ func CreateCommand() (*cobra.Command, *viper.Viper) {
 	cmd := &cobra.Command{
 		Use:     "teslamate-discovery",
 		Short:   "Configure Home Assistant MQTT Discovery for TeslaMate instances",
-		Version: Version,
+		Version: version,
 	}
 
 	flags := cmd.Flags()
