@@ -11,9 +11,9 @@ VERSION ?= $(shell git describe --always --dirty)
 GOIMPORTS ?= go run -modfile hack/goimports/go.mod golang.org/x/tools/cmd/goimports
 KO ?= go run -modfile hack/ko/go.mod github.com/google/ko
 
-LD_FLAGS ?= -X main.version=$(VERSION)
 KO_DOCKER_REPO ?= ko.local
 KO_PLATFORMS ?= all
+LD_FLAGS ?= -X main.version=$(VERSION)
 
 # Setting SHELL to bash allows bash commands to be executed by recipes.
 # Options are set to exit when a recipe line exits non-zero or a piped command fails.
@@ -61,10 +61,10 @@ test: fmt vet tidy ## Run tests.
 
 .PHONY: run
 run: ## Run the application.
-	go run -ldflags "$(LD_FLAGS)" ./cmd
+	go run -ldflags "$(LD_FLAGS)" ./cmd/teslamate-discovery
 
 ##@ Building
 
 .PHONY: image
 image: ## Build the image.
-	VERSION=$(VERSION) $(KO) build --platform $(KO_PLATFORMS) ./cmd
+	VERSION=$(VERSION) $(KO) build --platform $(KO_PLATFORMS) --base-import-paths ./cmd/teslamate-discovery
