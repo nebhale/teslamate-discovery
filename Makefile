@@ -67,4 +67,5 @@ run: ## Run the application.
 
 .PHONY: image
 image: ## Build the image.
-	VERSION=$(VERSION) $(KO) build --platform $(KO_PLATFORMS) --base-import-paths ./cmd/teslamate-discovery
+	VERSION=$(VERSION) $(KO) build --platform $(KO_PLATFORMS) --base-import-paths --tags $(VERSION) --tags latest \
+		./cmd/teslamate-discovery

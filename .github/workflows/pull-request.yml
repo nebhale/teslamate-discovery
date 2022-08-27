@@ -1,18 +1,26 @@
 name: Pull Request Checks
+
 on:
   pull_request:
     types:
     - opened
     - reopened
     - synchronize
+
 jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.0.2
-    - uses: actions/setup-go@v3.3.0
+
+    - name: Checkout Source
+      uses: actions/checkout@v3.0.2
+
+    - name: Setup Go
+      uses: actions/setup-go@v3.3.0
       with:
-        go-version-file: 'go.mod'
+        go-version-file: go.mod
         check-latest: true
         cache: true
-    - run: make test
+
+    - name: Run Tests
+      run: make test

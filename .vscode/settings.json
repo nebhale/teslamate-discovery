@@ -3,6 +3,7 @@
     "crosshairs",
     "Frunk",
     "goimports",
+    "goreleaser",
     "homeassistant",
     "iancoleman",
     "MQTT",
