@@ -1,6 +1,6 @@
 builds:
 - id: teslamate-discovery
-  main: ./cmd
+  main: ./cmd/teslamate-discovery
   ldflags:
   - -s -w
   - -extldflags "-static"
