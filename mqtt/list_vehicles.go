@@ -34,6 +34,9 @@ func (m *MQTT) ListVehicles(ctx context.Context, tmCfg tm.Config) (map[string]ha
 
 		case msg := <-in:
 			s := r.FindStringSubmatch(msg.Topic())
+			if s == nil {
+				continue
+			}
 
 			switch s[2] {
 			case "display_name":
