@@ -3,7 +3,7 @@ module github.com/nebhale/teslamate-discovery
 go 1.19
 
 require (
-	github.com/eclipse/paho.mqtt.golang v1.4.1
+	github.com/eclipse/paho.mqtt.golang v1.4.2
 	github.com/iancoleman/strcase v0.2.0
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/viper v1.12.0
