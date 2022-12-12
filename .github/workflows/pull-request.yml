@@ -13,7 +13,7 @@ jobs:
     steps:
 
     - name: Checkout Source
-      uses: actions/checkout@v3.0.2
+      uses: actions/checkout@v3.2.0
 
     - name: Setup Go
       uses: actions/setup-go@v3.3.0
