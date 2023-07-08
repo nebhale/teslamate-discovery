@@ -59,6 +59,9 @@ func (m *MQTT) ListVehicles(ctx context.Context, tmCfg tm.Config) (map[string]ha
 
 		case <-time.After(250 * time.Millisecond):
 			for id, dev := range vehicles {
+				if dev.Name == "" {
+					dev.Name = "Tesla"
+				}
 				dev.Identifiers = []string{fmt.Sprintf("%s/cars/%s", tmCfg.Prefix, id)}
 				dev.Manufacturer = "Tesla"
 				dev.SuggestedArea = "Garage"
