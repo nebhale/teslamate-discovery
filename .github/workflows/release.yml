@@ -15,7 +15,7 @@ jobs:
     steps:
 
     - name: Checkout Source
-      uses: actions/checkout@v3.0.2
+      uses: actions/checkout@v3.5.3
 
     - name: Fetch All Tags
       run: git fetch --force --tags
@@ -38,7 +38,7 @@ jobs:
     steps:
 
     - name: Checkout Source
-      uses: actions/checkout@v3.0.2
+      uses: actions/checkout@v3.5.3
       with:
         fetch-depth: 0
 
