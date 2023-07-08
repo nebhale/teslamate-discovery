@@ -1,6 +1,6 @@
 module github.com/nebhale/teslamate-discovery
 
-go 1.19
+go 1.20
 
 require (
 	github.com/eclipse/paho.mqtt.golang v1.4.2

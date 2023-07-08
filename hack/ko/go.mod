@@ -1,6 +1,6 @@
 module github.com/nebhale/teslamate-discovery/hack/ko
 
-go 1.19
+go 1.20
 
 require github.com/google/ko v0.12.0
 
