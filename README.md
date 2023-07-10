@@ -29,7 +29,22 @@ topic read teslamate/#
 
 [mos]: https://github.com/home-assistant/addons/blob/master/mosquitto/DOCS.md
 
+# Installation
+To install the application, navigate to the [Releases][r] page for the project and download the appropriate Asset for the platform you'll be running on (e.g. `teslamate-discovery_2.0.2_Darwin_all.tar.gz` for macOS).  Unzip the package and within it you'll find the `teslamate-discovery` binary that you'll run.
+
+[r]: https://github.com/nebhale/teslamate-discovery/releases
+
 # Usage
+Common usage might look like:
+
+```plain
+$ teslamate-discovery \
+    --mqtt-host <HOST> \
+    --mqtt-username <USERNAME> \
+    --mqtt-password <PASSWORD>
+```
+
+## Usage Options
 ```plain
 Usage:
   teslamate-discovery [flags]
