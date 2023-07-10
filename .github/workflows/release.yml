@@ -10,28 +10,6 @@ permissions:
   packages: write
 
 jobs:
-  image:
-    runs-on: ubuntu-latest
-    steps:
-
-    - name: Checkout Source
-      uses: actions/checkout@v3.5.3
-
-    - name: Fetch All Tags
-      run: git fetch --force --tags
-
-    - name: Setup Go
-      uses: actions/setup-go@v4.0.1
-      with:
-        go-version-file: go.mod
-        check-latest: true
-
-    - name: Publish Image
-      run: make image
-      env:
-        KO_DOCKER_REPO: ghcr.io/nebhale
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   release:
     runs-on: ubuntu-latest
     steps:
@@ -49,7 +27,6 @@ jobs:
       with:
         go-version-file: go.mod
         check-latest: true
-        cache: true
 
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v4.3.0
@@ -57,4 +34,6 @@ jobs:
         version: latest
         args: release --clean
       env:
+        KO_DOCKER_REPO: ghcr.io/nebhale
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
