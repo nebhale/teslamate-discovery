@@ -68,6 +68,19 @@ func TestMQTT_ListVehicles(t *testing.T) {
 							topic:   "test-prefix/cars/2/version",
 							payload: []byte("test-version-2"),
 						})
+
+						cb(nil, &stubMessage{
+							topic:   "test-prefix/cars/3/trim_badging",
+							payload: []byte("test-trim-badging-3"),
+						})
+						cb(nil, &stubMessage{
+							topic:   "test-prefix/cars/3/model",
+							payload: []byte("test-model-3"),
+						})
+						cb(nil, &stubMessage{
+							topic:   "test-prefix/cars/3/version",
+							payload: []byte("test-version-3"),
+						})
 					},
 					subscribeTokens: []paho.Token{&stubToken{}},
 				},
@@ -91,6 +104,14 @@ func TestMQTT_ListVehicles(t *testing.T) {
 					Model:           "Model test-model-2 test-trim-badging-2",
 					Name:            "test-display-name-2",
 					SoftwareVersion: "test-version-2",
+					SuggestedArea:   "Garage",
+				},
+				"3": {
+					Identifiers:     []string{"test-prefix/cars/3"},
+					Manufacturer:    "Tesla",
+					Model:           "Model test-model-3 test-trim-badging-3",
+					Name:            "Tesla",
+					SoftwareVersion: "test-version-3",
 					SuggestedArea:   "Garage",
 				},
 			},
