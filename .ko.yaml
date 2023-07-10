@@ -1,7 +1,0 @@
-builds:
-- id: teslamate-discovery
-  main: ./cmd/teslamate-discovery
-  ldflags:
-  - -s -w
-  - -extldflags "-static"
-  - -X main.version={{.Env.VERSION}}
