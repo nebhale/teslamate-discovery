@@ -26,7 +26,6 @@ kos:
   tags:
     - '{{.Version}}'
     - latest
-sboms: [ {} ]
 checksum: {}
 
 changelog:
