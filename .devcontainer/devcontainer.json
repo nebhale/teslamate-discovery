@@ -1,54 +1,15 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux
 {
-  "name": "GitHub Codespaces (Default)",
+  "name": "Teslamate Discovery",
 
-  // Configure tool-specific properties.
-  "customizations": {
-    // Configure properties specific to VS Code.
-    "vscode": {
-      // Set *default* container specific settings.json values on container create.
-      "settings": {
-        "go.toolsManagement.checkForUpdates": "local",
-        "go.useLanguageServer": true,
-        "go.gopath": "/go"
-      },
+  "image": "ubuntu:kinetic",
+  "remoteUser": "codespaces",
 
-      // Add the IDs of extensions you want installed when the container is created.
-      "extensions": [
-        "GitHub.vscode-pull-request-github"
-      ]
-    }
-  },
-
-  // Configure properties specific to Codespaces.
-  "codespaces": {
-    "repositories": {
-      "nebhale/dotfiles": {
-        "permissions": {
-          "contents": "read"
-        }
-      }
-    }
-  },
-
-  "remoteUser": "codespace",
-
-  "overrideCommand": false,
-
-  "mounts": ["source=codespaces-linux-var-lib-docker,target=/var/lib/docker,type=volume"],
-
-  "runArgs": [
-    "--cap-add=SYS_PTRACE",
-    "--security-opt",
-    "seccomp=unconfined",
-    "--privileged",
-    "--init"
-  ],
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
-
-  // "oryx build" will automatically install your dependencies and attempt to build your project
-  // "postCreateCommand": "oryx build -p virtualenv_name=.venv --log-file /tmp/oryx-build.log --manifest-dir /tmp || echo 'Could not auto-build. Skipping.'"
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installOhMyZsh": false
+    },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/go:1": {}
+  }
 }
