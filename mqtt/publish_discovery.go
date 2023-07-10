@@ -294,7 +294,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Icon:              "mdi:map-marker-distance",
 			Name:              Name(device, "Range"),
 			StateClass:        ha.Measurement,
-			StateTopic:        StateTopic(device, "/rated_battery_range_km"),
+			StateTopic:        StateTopic(device, fmt.Sprintf(`/%s_battery_range_km`, unitsCfg.RangeType.Prefix())),
 			UniqueId:          UniqueId(device, "/range"),
 			UnitOfMeasurement: unitsCfg.Distance.DistanceLongUnits(),
 			ValueTemplate:     unitsCfg.Distance.DistanceLongValueTemplate(),

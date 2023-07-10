@@ -42,6 +42,7 @@ Flags:
   -p, --mqtt-port int                mqtt broker port (default 8883)
   -s, --mqtt-scheme string           mqtt broker scheme (default "ssl")
   -u, --mqtt-username string         mqtt broker username
+      --range-type string            range type ["estimated", "ideal", "rated"] (default "rated")
       --tm-prefix string             teslamate message prefix (default "teslamate")
       --units-distance string        distance units ["imperial", "metric"] (default "imperial")
       --units-pressure string        pressure units ["imperial", "metric"] (default "imperial")

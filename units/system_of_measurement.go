@@ -70,10 +70,10 @@ func (s *SystemOfMeasurement) Set(v string) error {
 	switch v {
 	case "imperial", "metric":
 		*s = SystemOfMeasurement(v)
-		return nil
 	default:
 		return fmt.Errorf("must be one of imperial, metric")
 	}
+	return nil
 }
 
 func (s SystemOfMeasurement) String() string {
