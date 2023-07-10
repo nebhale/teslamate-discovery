@@ -81,6 +81,13 @@ func CreateCommand() (*cobra.Command, *viper.Viper) {
 	_ = viper.BindEnv("tm.prefix", "TM_PREFIX")
 	viper.SetDefault("tm.prefix", tm.DefaultPrefix)
 
+	r := units.DefaultRangeType
+	flags.Var(&r, "range-type", "range type [\"estimated\", \"ideal\", \"rated\"]")
+	_ = cmd.RegisterFlagCompletionFunc("range-type", units.RangeTypeCompletion)
+	_ = viper.BindPFlag("units.range_type", flags.Lookup("range-type"))
+	_ = viper.BindEnv("units.range_type", "UNITS_RANGE_TYPE")
+	viper.SetDefault("units.range_type", units.DefaultRangeType)
+
 	d := units.DefaultDistance
 	flags.Var(&d, "units-distance", "distance units [\"imperial\", \"metric\"]")
 	_ = cmd.RegisterFlagCompletionFunc("units-distance", units.SystemOfMeasurementCompletion)
