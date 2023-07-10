@@ -36,4 +36,3 @@ jobs:
       env:
         KO_DOCKER_REPO: ghcr.io/nebhale
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}

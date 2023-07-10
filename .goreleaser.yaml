@@ -3,7 +3,7 @@ before:
   - go mod tidy
 
 builds:
-- main: ./cmd
+- main: ./cmd/teslamate-discovery
   goos:
   - linux
   - windows
@@ -19,13 +19,14 @@ archives:
   - goos: windows
     format: zip
 kos:
-- preserve_import_paths: false
-  platforms:
-  - linux/amd64
-  - linux/arm64
+- base_import_paths: true
   tags:
     - '{{.Version}}'
     - latest
+  platforms:
+  - linux/amd64
+  - linux/arm64
+  sbom: none
 checksum: {}
 
 changelog:
