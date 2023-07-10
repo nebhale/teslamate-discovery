@@ -95,7 +95,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Name:              Name(device, "Time to Charged"),
 			StateTopic:        StateTopic(device, "/time_to_full_charge"),
 			UniqueId:          UniqueId(device, "/time_to_charged"),
-			UnitOfMeasurement: "hours",
+			UnitOfMeasurement: "h",
 		},
 
 		// Climate
