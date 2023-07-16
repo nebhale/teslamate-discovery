@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/eclipse/paho.mqtt.golang v1.4.3
-	github.com/iancoleman/strcase v0.2.0
+	github.com/iancoleman/strcase v0.3.0
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.16.0
 )
