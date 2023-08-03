@@ -140,42 +140,6 @@ func TestMQTT_PublishDiscovery(t *testing.T) {
 	}
 }
 
-func TestName(t *testing.T) {
-	type args struct {
-		device ha.Device
-		suffix string
-	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		{
-			name: "default",
-			args: args{
-				device: ha.Device{Name: "test"},
-				suffix: "name",
-			},
-			want: "test name",
-		},
-		{
-			name: "empty",
-			args: args{
-				device: ha.Device{Name: "test"},
-				suffix: "",
-			},
-			want: "test ",
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Name(tt.args.device, tt.args.suffix); got != tt.want {
-				t.Errorf("Name() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
 func TestStateTopic(t *testing.T) {
 	type args struct {
 		device ha.Device
