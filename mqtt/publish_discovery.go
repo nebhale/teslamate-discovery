@@ -25,7 +25,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			DeviceClass:       ha.Energy,
-			Name:              Name(device, "Energy Added"),
+			Name:              "Energy Added",
 			StateTopic:        StateTopic(device, "/charge_energy_added"),
 			UniqueId:          UniqueId(device, "/charge_energy_added"),
 			UnitOfMeasurement: "kWh",
@@ -34,7 +34,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			Icon:              "mdi:battery-charging-90",
-			Name:              Name(device, "Limit"),
+			Name:              "Limit",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, "/charge_limit_soc"),
 			UniqueId:          UniqueId(device, "/limit"),
@@ -43,7 +43,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			DeviceClass:       ha.Current,
-			Name:              Name(device, "Charger Current"),
+			Name:              "Charger Current",
 			StateTopic:        StateTopic(device, "/charger_actual_current"),
 			UniqueId:          UniqueId(device, "/charger_current"),
 			UnitOfMeasurement: "A",
@@ -51,7 +51,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.BinarySensor{
 			Device:        device,
 			DeviceClass:   ha.BatteryCharging,
-			Name:          Name(device, "Charger"),
+			Name:          "Charging",
 			StateTopic:    StateTopic(device, "/state"),
 			UniqueId:      UniqueId(device, "/charging"),
 			ValueTemplate: `{{ "ON" if value == "charging" else "OFF" }}`,
@@ -59,7 +59,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.BinarySensor{
 			Device:      device,
 			DeviceClass: ha.Plug,
-			Name:        Name(device, "Charger"),
+			Name:        "Plug",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/plugged_in"),
@@ -68,7 +68,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			DeviceClass:       ha.Power,
-			Name:              Name(device, "Charger Power"),
+			Name:              "Charger Power",
 			StateTopic:        StateTopic(device, "/charger_power"),
 			UniqueId:          UniqueId(device, "/charger_power"),
 			UnitOfMeasurement: "kW",
@@ -76,7 +76,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			DeviceClass:       ha.Voltage,
-			Name:              Name(device, "Charger Voltage"),
+			Name:              "Charger Voltage",
 			StateTopic:        StateTopic(device, "/charger_voltage"),
 			UniqueId:          UniqueId(device, "/charger_voltage"),
 			UnitOfMeasurement: "V",
@@ -84,7 +84,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:      device,
 			DeviceClass: ha.Timestamp,
-			Name:        Name(device, "Scheduled Start Time"),
+			Name:        "Scheduled Start Time",
 			StateTopic:  StateTopic(device, "/scheduled_charging_start_time"),
 			UniqueId:    UniqueId(device, "/start_time"),
 		},
@@ -92,7 +92,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:            device,
 			DeviceClass:       ha.Duration,
 			Icon:              "mdi:timer",
-			Name:              Name(device, "Time to Charged"),
+			Name:              "Time to Charged",
 			StateTopic:        StateTopic(device, "/time_to_full_charge"),
 			UniqueId:          UniqueId(device, "/time_to_charged"),
 			UnitOfMeasurement: "h",
@@ -102,7 +102,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			DeviceClass:       ha.Temperature,
-			Name:              Name(device, "Inside Temp"),
+			Name:              "Inside Temp",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, "/inside_temp"),
 			UniqueId:          UniqueId(device, "/inside_temp"),
@@ -113,7 +113,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Running,
 			Icon:        "mdi:fan",
-			Name:        Name(device, "Climate"),
+			Name:        "Climate",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/is_climate_on"),
@@ -123,7 +123,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Running,
 			Icon:        "mdi:fan",
-			Name:        Name(device, "Preconditioning"),
+			Name:        "Preconditioning",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/is_preconditioning"),
@@ -132,7 +132,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			DeviceClass:       ha.Temperature,
-			Name:              Name(device, "Outside Temp"),
+			Name:              "Outside Temp",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, "/outside_temp"),
 			UniqueId:          UniqueId(device, "/outside_temp"),
@@ -144,7 +144,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			Icon:              "mdi:image-filter-hdr",
-			Name:              Name(device, "Elevation"),
+			Name:              "Elevation",
 			StateTopic:        StateTopic(device, "/elevation"),
 			UniqueId:          UniqueId(device, "/elevation"),
 			UnitOfMeasurement: unitsCfg.Distance.DistanceShortUnits(),
@@ -153,14 +153,14 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:     device,
 			Icon:       "mdi:earth",
-			Name:       Name(device, "Geofence"),
+			Name:       "Geofence",
 			StateTopic: StateTopic(device, "/geofence"),
 			UniqueId:   UniqueId(device, "/geofence"),
 		},
 		ha.Sensor{
 			Device:            device,
 			Icon:              "mdi:compass",
-			Name:              Name(device, "Heading"),
+			Name:              "Heading",
 			StateTopic:        StateTopic(device, "/heading"),
 			UniqueId:          UniqueId(device, "/heading"),
 			UnitOfMeasurement: "°",
@@ -168,7 +168,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			Icon:              "mdi:crosshairs-gps",
-			Name:              Name(device, "Latitude"),
+			Name:              "Latitude",
 			StateTopic:        StateTopic(device, "/latitude"),
 			UniqueId:          UniqueId(device, "/latitude"),
 			UnitOfMeasurement: "°",
@@ -178,7 +178,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Icon:                   "mdi:car",
 			JSONAttributesTemplate: fmt.Sprintf(`{{ { "latitude": value | float(0), "longitude": states("sensor.%s_longitude") | float(0) } | to_json }}`, strcase.ToSnake(device.Name)),
 			JSONAttributesTopic:    StateTopic(device, "/latitude"),
-			Name:                   device.Name,
+			Name:                   "",
 			SourceType:             "gps",
 			StateTopic:             StateTopic(device, "/latitude"),
 			UniqueId:               UniqueId(device, "/location"),
@@ -187,7 +187,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			Icon:              "mdi:crosshairs-gps",
-			Name:              Name(device, "Longitude"),
+			Name:              "Longitude",
 			StateTopic:        StateTopic(device, "/longitude"),
 			UniqueId:          UniqueId(device, "/longitude"),
 			UnitOfMeasurement: "°",
@@ -195,7 +195,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			DeviceClass:       ha.Power,
-			Name:              Name(device, "Power"),
+			Name:              "Power",
 			StateTopic:        StateTopic(device, "/power"),
 			UniqueId:          UniqueId(device, "/power"),
 			UnitOfMeasurement: "kW",
@@ -203,7 +203,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			Icon:              "mdi:speedometer",
-			Name:              Name(device, "Speed"),
+			Name:              "Speed",
 			StateTopic:        StateTopic(device, "/speed"),
 			UniqueId:          UniqueId(device, "/speed"),
 			UnitOfMeasurement: unitsCfg.Distance.SpeedUnits(),
@@ -214,7 +214,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			DeviceClass:       ha.BatteryCharge,
-			Name:              Name(device, "Battery"),
+			Name:              "Battery",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, "/battery_level"),
 			UniqueId:          UniqueId(device, "/battery"),
@@ -224,7 +224,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Door,
 			Icon:        "mdi:ev-plug-tesla",
-			Name:        Name(device, "Charge Port"),
+			Name:        "Charge Port",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/charge_port_door_open"),
@@ -234,7 +234,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Door,
 			Icon:        "mdi:car-door",
-			Name:        Name(device, "Doors"),
+			Name:        "Doors",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/doors_open"),
@@ -244,7 +244,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Door,
 			Icon:        "mdi:car",
-			Name:        Name(device, "Frunk"),
+			Name:        "Frunk",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/frunk_open"),
@@ -254,7 +254,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Problem,
 			Icon:        "mdi:heart-pulse",
-			Name:        Name(device, "Health"),
+			Name:        "Health",
 			PayloadOff:  "true",
 			PayloadOn:   "false",
 			StateTopic:  StateTopic(device, "/healthy"),
@@ -263,7 +263,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.BinarySensor{
 			Device:      device,
 			DeviceClass: ha.Lock,
-			Name:        Name(device, "Locked"),
+			Name:        "Locked",
 			PayloadOff:  "true",
 			PayloadOn:   "false",
 			StateTopic:  StateTopic(device, "/locked"),
@@ -273,7 +273,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Occupancy,
 			Icon:        "mdi:account",
-			Name:        Name(device, "Occupied"),
+			Name:        "Occupied",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/is_user_present"),
@@ -282,7 +282,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			Icon:              "mdi:counter",
-			Name:              Name(device, "Odometer"),
+			Name:              "Odometer",
 			StateClass:        ha.TotalIncreasing,
 			StateTopic:        StateTopic(device, "/odometer"),
 			UniqueId:          UniqueId(device, "/odometer"),
@@ -292,7 +292,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:            device,
 			Icon:              "mdi:map-marker-distance",
-			Name:              Name(device, "Range"),
+			Name:              "Range",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, fmt.Sprintf(`/%s_battery_range_km`, unitsCfg.RangeType.Prefix())),
 			UniqueId:          UniqueId(device, "/range"),
@@ -302,7 +302,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.BinarySensor{
 			Device:     device,
 			Icon:       "mdi:cctv",
-			Name:       Name(device, "Sentry Mode"),
+			Name:       "Sentry Mode",
 			PayloadOff: "false",
 			PayloadOn:  "true",
 			StateTopic: StateTopic(device, "/sentry_mode"),
@@ -311,7 +311,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:     device,
 			Icon:       "mdi:car-connected",
-			Name:       Name(device, "State"),
+			Name:       "State",
 			StateTopic: StateTopic(device, "/state"),
 			UniqueId:   UniqueId(device, "/state"),
 		},
@@ -319,7 +319,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:            device,
 			DeviceClass:       ha.Pressure,
 			Icon:              "mdi:car-tire-alert",
-			Name:              Name(device, "Tire Pressure (Front Left)"),
+			Name:              "Tire Pressure (Front Left)",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, "/tpms_pressure_fl"),
 			UniqueId:          UniqueId(device, "/tire_pressure_front_left"),
@@ -330,7 +330,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:            device,
 			DeviceClass:       ha.Pressure,
 			Icon:              "mdi:car-tire-alert",
-			Name:              Name(device, "Tire Pressure (Front Right)"),
+			Name:              "Tire Pressure (Front Right)",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, "/tpms_pressure_fr"),
 			UniqueId:          UniqueId(device, "/tire_pressure_front_right"),
@@ -341,7 +341,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:            device,
 			DeviceClass:       ha.Pressure,
 			Icon:              "mdi:car-tire-alert",
-			Name:              Name(device, "Tire Pressure (Rear Left)"),
+			Name:              "Tire Pressure (Rear Left)",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, "/tpms_pressure_rl"),
 			UniqueId:          UniqueId(device, "/tire_pressure_rear_left"),
@@ -352,7 +352,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:            device,
 			DeviceClass:       ha.Pressure,
 			Icon:              "mdi:car-tire-alert",
-			Name:              Name(device, "Tire Pressure (Rear Right)"),
+			Name:              "Tire Pressure (Rear Right)",
 			StateClass:        ha.Measurement,
 			StateTopic:        StateTopic(device, "/tpms_pressure_rr"),
 			UniqueId:          UniqueId(device, "/tire_pressure_rear_right"),
@@ -363,7 +363,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Door,
 			Icon:        "mdi:car",
-			Name:        Name(device, "Trunk"),
+			Name:        "Trunk",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/trunk_open"),
@@ -372,7 +372,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.BinarySensor{
 			Device:      device,
 			DeviceClass: ha.Update,
-			Name:        Name(device, "Update"),
+			Name:        "Update",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/update_available"),
@@ -382,7 +382,7 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Device:      device,
 			DeviceClass: ha.Window,
 			Icon:        "mdi:car-door",
-			Name:        Name(device, "Windows"),
+			Name:        "Windows",
 			PayloadOff:  "false",
 			PayloadOn:   "true",
 			StateTopic:  StateTopic(device, "/windows_open"),
@@ -391,17 +391,13 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.Sensor{
 			Device:     device,
 			Icon:       "mdi:numeric",
-			Name:       Name(device, "Version"),
+			Name:       "Version",
 			StateTopic: StateTopic(device, "/version"),
 			UniqueId:   UniqueId(device, "/version"),
 		},
 	}
 
 	return m.Publish(ctx, haCfg.DiscoveryPrefix, v...)
-}
-
-func Name(device ha.Device, suffix string) string {
-	return fmt.Sprintf("%s %s", device.Name, suffix)
 }
 
 func StateTopic(device ha.Device, suffix string) string {
