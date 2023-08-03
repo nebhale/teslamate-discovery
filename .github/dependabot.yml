@@ -28,7 +28,7 @@ updates:
   - tools
 
 - package-ecosystem: gomod
-  directory: "/hack/ko"
+  directory: "/hack/goreleaser"
   schedule:
     interval: daily
   labels:
