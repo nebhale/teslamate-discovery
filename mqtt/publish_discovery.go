@@ -176,11 +176,9 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		ha.DeviceTracker{
 			Device:                 device,
 			Icon:                   "mdi:car",
-			JSONAttributesTemplate: fmt.Sprintf(`{{ { "latitude": value | float(0), "longitude": states("sensor.%s_longitude") | float(0) } | to_json }}`, strcase.ToSnake(device.Name)),
-			JSONAttributesTopic:    StateTopic(device, "/latitude"),
+			JSONAttributesTemplate: fmt.Sprintf(`{{ { "latitude": states("sensor.%s_latitude") | float(0), "longitude": states("sensor.%s_longitude") | float(0) } | to_json }}`, strcase.ToSnake(device.Name), strcase.ToSnake(device.Name)),
 			Name:                   "",
 			SourceType:             "gps",
-			StateTopic:             StateTopic(device, "/latitude"),
 			UniqueId:               UniqueId(device, "/location"),
 			ValueTemplate:          fmt.Sprintf(`{{ "home" if "home" in (states("sensor.%s_geofence") | lower) else "not_home" }}`, strcase.ToSnake(device.Name)),
 		},
