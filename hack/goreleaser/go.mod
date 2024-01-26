@@ -1,6 +1,8 @@
 module github.com/nebhale/teslamate-discovery/hack/goreleaser
 
-go 1.20
+go 1.21
+
+toolchain go1.21.6
 
 require github.com/goreleaser/goreleaser v1.21.2
 

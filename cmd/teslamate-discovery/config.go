@@ -32,15 +32,12 @@ type Config struct {
 
 func UnmarshalConfig(config *Config, v *viper.Viper) CobraEFn {
 	return func(cmd *cobra.Command, args []string) error {
-		v.SetConfigName("teslamate-discovery")
-		v.SetConfigType("yaml")
+		v.SetConfigName("config.yaml")
 
 		dir, err := os.UserConfigDir()
 		if err == nil {
 			v.AddConfigPath(fmt.Sprintf("%s/teslamate-discovery", dir))
 		}
-		v.AddConfigPath("$HOME")
-		v.AddConfigPath(".")
 
 		if err := v.ReadInConfig(); err != nil {
 			if _, ok := err.(viper.ConfigFileNotFoundError); !ok {
