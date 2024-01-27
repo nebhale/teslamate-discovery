@@ -32,10 +32,13 @@ type Config struct {
 
 func UnmarshalConfig(config *Config, v *viper.Viper) CobraEFn {
 	return func(cmd *cobra.Command, args []string) error {
-		v.SetConfigName("config.yaml")
+		v.SetConfigName("config")
+		v.SetConfigType("yaml")
 
-		dir, err := os.UserConfigDir()
-		if err == nil {
+		if dir, ok := os.LookupEnv("XDG_CONFIG_HOME"); ok {
+			v.AddConfigPath(fmt.Sprintf("%s/teslamate-discovery", dir))
+		}
+		if dir, err := os.UserConfigDir(); err == nil {
 			v.AddConfigPath(fmt.Sprintf("%s/teslamate-discovery", dir))
 		}
 
