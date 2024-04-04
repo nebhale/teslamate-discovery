@@ -4,7 +4,7 @@ go 1.21
 
 toolchain go1.21.6
 
-require github.com/goreleaser/goreleaser v1.25.0
+require github.com/goreleaser/goreleaser v1.25.1
 
 require (
 	cloud.google.com/go v0.112.1 // indirect
