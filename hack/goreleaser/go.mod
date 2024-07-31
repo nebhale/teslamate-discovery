@@ -1,7 +1,7 @@
 module github.com/nebhale/teslamate-discovery/hack/goreleaser
 
 go 1.21
-toolchain go1.22.4
+toolchain go1.22.5
 
 require github.com/goreleaser/goreleaser v1.26.2
 
@@ -101,7 +101,7 @@ require (
 	github.com/distribution/reference v0.5.0 // indirect
 	github.com/docker/cli v25.0.4+incompatible // indirect
 	github.com/docker/distribution v2.8.3+incompatible // indirect
-	github.com/docker/docker v26.1.3+incompatible // indirect
+	github.com/docker/docker v26.1.4+incompatible // indirect
 	github.com/docker/docker-credential-helpers v0.8.1 // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0 // indirect
