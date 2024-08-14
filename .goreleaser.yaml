@@ -1,3 +1,5 @@
+version: 2
+
 before:
   hooks:
   - go mod tidy
@@ -16,7 +18,8 @@ universal_binaries:
 
 notarize:
   macos:
-    - sign:
+    - enabled: true
+      sign:
         certificate: "{{.Env.MACOS_SIGN_P12}}"
         password: "{{.Env.MACOS_SIGN_PASSWORD}}"
       notarize:
