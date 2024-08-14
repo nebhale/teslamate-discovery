@@ -36,3 +36,8 @@ jobs:
       env:
         KO_DOCKER_REPO: ghcr.io/nebhale
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MACOS_NOTARY_ISSUER_ID: ${{ secrets.MACOS_NOTARY_ISSUER_ID }}
+        MACOS_NOTARY_KEY: ${{ secrets.MACOS_NOTARY_KEY }}
+        MACOS_NOTARY_KEY_ID: ${{ secrets.MACOS_NOTARY_KEY_ID }}
+        MACOS_SIGN_P12: ${{ secrets.MACOS_SIGN_P12 }}
+        MACOS_SIGN_PASSWORD: ${{ secrets.MACOS_SIGN_PASSWORD }}
