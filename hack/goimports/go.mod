@@ -1,6 +1,9 @@
 module github.com/nebhale/teslamate-discovery/hack/goimports
 
-go 1.23
+go 1.23.0
+
+toolchain go1.24.1
+
 require golang.org/x/tools v0.31.0
 
 require (
