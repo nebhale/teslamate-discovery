@@ -219,6 +219,27 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 		// State
 		ha.Sensor{
 			Device:            device,
+			Icon:              "mdi:format-color-fill",
+			Name:              "Exterior Color",
+			StateTopic: StateTopic(device, "/exterior_color"),
+			UniqueId:   UniqueId(device, "/exterior_color"),
+		},
+		ha.Sensor{
+			Device:            device,
+			Icon:              "mdi:weather-windy",
+			Name:              "Spoiler Type",
+			StateTopic: StateTopic(device, "/spoiler_type"),
+			UniqueId:   UniqueId(device, "/spoiler_type"),
+		},
+		ha.Sensor{
+			Device:            device,
+			Icon:              "mdi:form-textbox",
+			Name:              "Display Name",
+			StateTopic: StateTopic(device, "/display_name"),
+			UniqueId:   UniqueId(device, "/display_name"),
+		},
+		ha.Sensor{
+			Device:            device,
 			DeviceClass:       ha.BatteryCharge,
 			Name:              "Battery",
 			StateClass:        ha.Measurement,
@@ -384,6 +405,13 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Name:       "State",
 			StateTopic: StateTopic(device, "/state"),
 			UniqueId:   UniqueId(device, "/state"),
+		},
+		ha.Sensor{
+			Device:     device,
+			Icon:       "mdi:timer-sand",
+			Name:       "Last Seen",
+			StateTopic: StateTopic(device, "/since"),
+			UniqueId:   UniqueId(device, "/since"),
 		},
 		ha.Sensor{
 			Device:            device,
