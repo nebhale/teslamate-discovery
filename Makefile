@@ -9,7 +9,7 @@ VERSION ?= $(shell git describe --always --dirty)
 
 # Tools
 GOIMPORTS ?= go run -modfile hack/goimports/go.mod golang.org/x/tools/cmd/goimports
-GORELEASER ?= go run -modfile hack/goreleaser/go.mod github.com/goreleaser/goreleaser
+GORELEASER ?= go run -modfile hack/goreleaser/go.mod github.com/goreleaser/goreleaser/v2
 
 # Setting SHELL to bash allows bash commands to be executed by recipes.
 # Options are set to exit when a recipe line exits non-zero or a piped command fails.

@@ -8,5 +8,5 @@
 package tools
 
 import (
-	_ "github.com/goreleaser/goreleaser"
+	_ "github.com/goreleaser/goreleaser/v2"
 )
