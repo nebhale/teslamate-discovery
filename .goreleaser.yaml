@@ -18,26 +18,26 @@ universal_binaries:
 
 notarize:
   macos:
-    - enabled: true
-      sign:
-        certificate: "{{.Env.MACOS_SIGN_P12}}"
-        password: "{{.Env.MACOS_SIGN_PASSWORD}}"
-      notarize:
-        issuer_id: "{{.Env.MACOS_NOTARY_ISSUER_ID}}"
-        key_id: "{{.Env.MACOS_NOTARY_KEY_ID}}"
-        key: "{{.Env.MACOS_NOTARY_KEY}}"
-        wait: true
-        timeout: 20m
+  - enabled: true
+    sign:
+      certificate: "{{.Env.MACOS_SIGN_P12}}"
+      password: "{{.Env.MACOS_SIGN_PASSWORD}}"
+    notarize:
+      issuer_id: "{{.Env.MACOS_NOTARY_ISSUER_ID}}"
+      key_id: "{{.Env.MACOS_NOTARY_KEY_ID}}"
+      key: "{{.Env.MACOS_NOTARY_KEY}}"
+      wait: true
+      timeout: 20m
 
 archives:
 - format_overrides:
   - goos: windows
-    format: zip
+    formats: zip
 kos:
 - base_import_paths: true
   tags:
-    - '{{.Version}}'
-    - latest
+  - '{{.Version}}'
+  - latest
   platforms:
   - linux/amd64
   - linux/arm64
