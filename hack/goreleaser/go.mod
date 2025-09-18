@@ -2,7 +2,7 @@ module github.com/nebhale/teslamate-discovery/hack/goreleaser
 
 go 1.25.1
 
-require github.com/goreleaser/goreleaser/v2 v2.12.1
+require github.com/goreleaser/goreleaser/v2 v2.12.2
 
 require (
 	al.essio.dev/pkg/shellescape v1.6.0 // indirect
@@ -97,7 +97,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/charmbracelet/bubbletea v1.3.0 // indirect
 	github.com/charmbracelet/colorprofile v0.3.1 // indirect
-	github.com/charmbracelet/fang v0.4.0 // indirect
+	github.com/charmbracelet/fang v0.4.1 // indirect
 	github.com/charmbracelet/lipgloss v1.1.0 // indirect
 	github.com/charmbracelet/lipgloss/v2 v2.0.0-beta1 // indirect
 	github.com/charmbracelet/x/ansi v0.8.0 // indirect
@@ -294,7 +294,7 @@ require (
 	github.com/yosida95/uritemplate/v3 v3.0.2 // indirect
 	github.com/zeebo/errs v1.4.0 // indirect
 	gitlab.com/digitalxero/go-conventional-commit v1.0.7 // indirect
-	gitlab.com/gitlab-org/api/client-go v0.144.1 // indirect
+	gitlab.com/gitlab-org/api/client-go v0.145.0 // indirect
 	go.mongodb.org/mongo-driver v1.17.3 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
