@@ -2,7 +2,7 @@ module github.com/nebhale/teslamate-discovery/hack/goreleaser
 
 go 1.26.0
 
-require github.com/goreleaser/goreleaser/v2 v2.14.0
+require github.com/goreleaser/goreleaser/v2 v2.14.1
 
 require (
 	al.essio.dev/pkg/shellescape v1.6.0 // indirect
