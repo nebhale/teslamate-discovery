@@ -17,7 +17,6 @@ updates:
   - dependencies
   - gomod
 
-
 - package-ecosystem: gomod
   directory: "/hack/goimports"
   schedule:
