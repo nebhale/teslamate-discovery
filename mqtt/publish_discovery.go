@@ -8,8 +8,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/iancoleman/strcase"
-
 	"github.com/nebhale/teslamate-discovery/ha"
 	"github.com/nebhale/teslamate-discovery/units"
 )
@@ -194,9 +192,9 @@ func (m *MQTT) PublishDiscovery(ctx context.Context, id string, device ha.Device
 			Name:                "",
 			JSONAttributesTopic: StateTopic(device, "/location"),
 			SourceType:          "gps",
-			StateTopic:          StateTopic(device, "/location"),
+			StateTopic:          StateTopic(device, "/geofence"),
 			UniqueId:            UniqueId(device, "/location"),
-			ValueTemplate:       fmt.Sprintf(`{{ "home" if "home" in (states("sensor.%s_geofence") | lower) else "not_home" }}`, strcase.ToSnake(device.Name)),
+			ValueTemplate:       `{{ "home" if "home" in (value | lower) else "not_home" }}`,
 		},
 		ha.Sensor{
 			Device:            device,

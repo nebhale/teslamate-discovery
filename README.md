@@ -30,6 +30,51 @@ topic read teslamate/#
 [mos]: https://github.com/home-assistant/addons/blob/master/mosquitto/DOCS.md
 
 # Installation
+
+## Container
+A multi-architecture container image for Linux `amd64` and `arm64` is published to the GitHub Container Registry:
+
+```plain
+ghcr.io/nebhale/teslamate-discovery
+```
+
+Use a version tag for repeatable deployments:
+
+```plain
+$ docker run --rm ghcr.io/nebhale/teslamate-discovery:2.6.0 \
+    --mqtt-scheme tcp \
+    --mqtt-host <HOST> \
+    --mqtt-port 1883 \
+    --mqtt-username <USERNAME> \
+    --mqtt-password <PASSWORD> \
+    --units-distance metric \
+    --units-pressure metric
+```
+
+The application publishes retained MQTT discovery messages, so the container only needs to run again when TeslaMate vehicles or discovery settings change.
+
+For Docker Compose installations, the same settings can be provided with environment variables:
+
+```yaml
+services:
+  teslamate-discovery:
+    image: ghcr.io/nebhale/teslamate-discovery:2.6.0
+    restart: "no"
+    environment:
+      MQTT_SCHEME: tcp
+      MQTT_HOST: <HOST>
+      MQTT_PORT: "1883"
+      MQTT_USERNAME: <USERNAME>
+      MQTT_PASSWORD: <PASSWORD>
+      HA_DISCOVERY_PREFIX: homeassistant
+      TM_PREFIX: teslamate
+      UNITS_DISTANCE: metric
+      UNITS_PRESSURE: metric
+```
+
+When using the Home Assistant Mosquitto add-on on a local network, `--mqtt-scheme tcp` and `--mqtt-port 1883` are typically required because the CLI defaults to SSL on port `8883`.
+
+## Binary
 To install the application, navigate to the [Releases][r] page for the project and download the appropriate Asset for the platform you'll be running on (e.g. `teslamate-discovery_2.0.2_Darwin_all.tar.gz` for macOS).  Unzip the package and within it you'll find the `teslamate-discovery` binary that you'll run.
 
 [r]: https://github.com/nebhale/teslamate-discovery/releases
