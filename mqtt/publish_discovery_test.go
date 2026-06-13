@@ -5,6 +5,7 @@ package mqtt_test
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"reflect"
 	"testing"
@@ -152,6 +153,41 @@ func TestMQTT_PublishDiscovery(t *testing.T) {
 				t.Errorf("MQTT.PublishDiscovery() topics = %v, want %v", topics, tt.want)
 				return
 			}
+
+			for _, v := range tt.fields.Client.publishArgs {
+				if v.topic != "test-discovery-prefix/device_tracker/test-id/location/config" {
+					continue
+				}
+
+				payload, ok := v.payload.([]byte)
+				if !ok {
+					t.Errorf("MQTT.PublishDiscovery() device tracker payload = %T, want []byte", v.payload)
+					return
+				}
+
+				var got ha.DeviceTracker
+				if err := json.Unmarshal(payload, &got); err != nil {
+					t.Errorf("MQTT.PublishDiscovery() device tracker payload unmarshal error = %v", err)
+					return
+				}
+
+				if got.StateTopic != "test-id/geofence" {
+					t.Errorf("MQTT.PublishDiscovery() device tracker state topic = %v, want test-id/geofence", got.StateTopic)
+					return
+				}
+				if got.JSONAttributesTopic != "test-id/location" {
+					t.Errorf("MQTT.PublishDiscovery() device tracker attributes topic = %v, want test-id/location", got.JSONAttributesTopic)
+					return
+				}
+				if got.ValueTemplate != `{{ "home" if "home" in (value | lower) else "not_home" }}` {
+					t.Errorf("MQTT.PublishDiscovery() device tracker value template = %v", got.ValueTemplate)
+					return
+				}
+
+				return
+			}
+
+			t.Errorf("MQTT.PublishDiscovery() did not publish device tracker config")
 		})
 	}
 }
