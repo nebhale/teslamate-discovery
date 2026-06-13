@@ -34,7 +34,7 @@ jobs:
         version: ~> v2
         args: release --clean
       env:
-        KO_DOCKER_REPO: ghcr.io/nebhale
+        KO_DOCKER_REPO: ghcr.io/${{ github.repository_owner }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         MACOS_NOTARY_ISSUER_ID: ${{ secrets.MACOS_NOTARY_ISSUER_ID }}
         MACOS_NOTARY_KEY: ${{ secrets.MACOS_NOTARY_KEY }}
