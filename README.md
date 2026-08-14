@@ -1,3 +1,8 @@
+> [!WARNING]
+> This project is archived as of August, 2026.  The functionality provided by it is now [included in TeslaMate natively][tm-discovery] starting in 4.1.0.
+
+[tm-discovery]: https://docs.teslamate.org/docs/integrations/home_assistant#mqtt-discovery-automatic-configuration
+
 # TeslaMate Discovery
 If you're a fan of the very excellent [TeslaMate][tm] and use it with [Home Assistant][ha], then this project is for you!
 
